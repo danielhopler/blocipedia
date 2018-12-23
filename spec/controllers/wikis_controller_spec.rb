@@ -84,4 +84,41 @@ RSpec.describe WikisController, type: :controller do
     end
   end
 
+  describe "PUT #update" do
+    it "updates the wiki with the expected attributes" do
+      new_title = "Updated Wiki Title"
+      new_body = "Updated Wiki Body"
+
+      put :update, params: {id: my_wiki.id, wiki: {title: new_title, body: new_body } }
+
+      updated_wiki = assigns(:wiki)
+      expect(updated_wiki.id).to eq my_wiki.id
+      expect(updated_wiki.title).to eq new_title
+      expect(updated_wiki.body).to eq new_body
+    end
+
+    it "redirects to the updated wiki" do
+      new_title = "Updated Wiki Title"
+      new_body = "Updated Wiki Body"
+
+      put :update, params: {id: my_wiki.id, wiki: {title: new_title, body: new_body } }
+      expect(response).to redirect_to my_wiki
+    end
+  end
+
+  describe "DELETE #destroy" do
+    it "deletes the wiki" do
+      delete :destroy, params: {id: my_wiki.id}
+
+      count = Wiki.where({id: my_wiki.id}).size
+      expect(count). to eq 0
+    end
+
+    it "redirects to wikis index view" do
+      delete :destroy, params: {id: my_wiki.id}
+
+      expect(response).to redirect_to wikis_path
+    end
+  end
+
 end
