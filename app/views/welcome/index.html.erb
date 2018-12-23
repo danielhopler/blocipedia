@@ -1,2 +1,22 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="jumbotron">
+   <h1>Blocipedia</h1>
+   <p>Blocipedia is a resource for sharing wikis with your friends!</p>
+   <p>
+     <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %> today!
+   </p>
+ </div>
+
+ <div class="row">
+   <div class="col-md-4">
+     <h2>Tell us what you know</h2>
+     <p>Share your knowledge about different topics.</p>
+   </div>
+   <div class="col-md-4">
+     <h2>Collaberate</h2>
+     <p>Meet other interesting people with intersting views.</p>
+   </div>
+   <div class="col-md-4">
+     <h2>Have fun!</h2>
+     <p>We want Blocipedia to be a place for all. So have fun and please be respectful of others!</p>
+   </div>
+ </div>
