@@ -79,3 +79,5 @@ gem 'devise'
 
 # Figaro handles sensative data with Environment Variables
 gem 'figaro', '1.0'
+
+gem 'pundit'
