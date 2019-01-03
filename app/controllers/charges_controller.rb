@@ -8,8 +8,6 @@ class ChargesController < ApplicationController
   end
 
   def create
-
-
     customer = Stripe::Customer.create(
       email: current_user.email,
       card: params[:stripeToken]
@@ -32,6 +30,7 @@ class ChargesController < ApplicationController
 
   def downgrade
     current_user.update_attribute(:role, 'standard')
+    current_user.wikis.update_all(private: false)
     flash[:notice] = "You have successfully downgraded your account. Your wikis are now public."
     redirect_to edit_user_registration_path
   end
