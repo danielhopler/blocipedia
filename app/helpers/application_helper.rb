@@ -6,4 +6,16 @@ module ApplicationHelper
 # #5
      content_tag :div, capture(&block), class: css_class
    end
+
+	 def markdown(content)
+		 renderer = Redcarpet::Render::HTML.new(hard_wrap:true, filter_html:true)
+		 options = {
+			 autolink: true,
+			 fenced_code_blocks: true,
+			 no_intra_emphasis: true,
+			 strikethrough: true
+		 }
+
+		 Redcarpet::Markdown.new(renderer, options).render(content).html_safe
+	 end
 end
