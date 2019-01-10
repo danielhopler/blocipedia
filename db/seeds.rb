@@ -52,10 +52,10 @@ standard = User.create!(
 )
 
 
+
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Wiki.count} wikis created"
-
 puts "#{User.standard.count} standard users created"
 puts "#{User.admin.count} admin created"
 puts "#{User.premium.count} premium created"
