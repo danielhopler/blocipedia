@@ -1,11 +1,11 @@
 class WikisController < ApplicationController
   before_action :authenticate_user!, except: :index
-  after_action :verify_authorized, unless: :devise_controller?
+  after_action :verify_authorized, except: :index
 
 
   def index
-    @wikis = Wiki.all
-    authorize @wikis
+    @wikis = policy_scope(Wiki)
+
   end
 
   def show
@@ -36,6 +36,8 @@ class WikisController < ApplicationController
   def edit
     @wiki = Wiki.find(params[:id])
     authorize @wiki
+    @collaborator = Collaborator.all
+    @selected_collaborators = []
   end
 
   def update
