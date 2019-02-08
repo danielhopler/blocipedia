@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :collaborators
   has_many :wikis, through: :collaborators
 
-  attr_writer :login
+  attr_accessor :login
 
   validates :username, presence: :true, uniqueness: { case_sensitive: false }
 
