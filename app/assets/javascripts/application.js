@@ -9,8 +9,18 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//= require bootstrap
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap
 //= require_tree .
+blocmetrics = {};
+blocmetrics.report = function(eventName){
+  var event = {event: { name: eventName }};
+  var request = new XMLHttpRequest();
+  request.open("POST", "http://localhost:3000/api/events", true);
+  request.setRequestHeader('Content-Type', 'application/json');
+  request.send(JSON.stringify(event));
+};
