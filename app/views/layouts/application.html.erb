@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blocipedia2</title>
+    <title>Blocipedia</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,23 +11,37 @@
   </head>
 
   <body>
-    <div class="container">
-      <ul class="nav nav-tabs">
-        <a href="/wikis" onclick="blocmetrics.report('wikis link clicked')"></a>
-        <li><%= link_to "Blocipedia", root_path %></li>
-        <li><%= link_to "Wikis", wikis_path %></li>
-      <div class ="navbar-nav pull-right">
-        <% if user_signed_in? %>
-          <li>Signed in as: <strong><%= current_user.email %></strong> | </li>
-          <li> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
-          <li> -<%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </li>
-        <% else %>
-          <li class="pull-right"> <%= link_to "Sign Up ", new_user_registration_path, class: 'navbar-link' %></li>
-          <li class="pull-right"><%= link_to "Sign In", new_user_session_path, :class => 'navbar-link' %> -</li>
-        <% end %>
-      </div>
 
-      </ul>
+  <!-- NAV -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to "Blocipedia", root_path, class:"navbar-brand" %>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li> <%= link_to "Wikis", wikis_path %> </li>
+            <% if user_signed_in? %>
+               <li> <%= link_to 'Edit profile', edit_user_registration_path %> </li>
+               <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete  %> </li>
+              <li class="navbar-text navbar-right"  id="nav-signed-in">Signed in as: <strong><%= current_user.email %></strong>  </li>
+            <% else %>
+              <li > <%= link_to "Sign Up ", new_user_registration_path, class: 'navbar-link' %></li>
+              <li ><%= link_to "Sign In", new_user_session_path, :class => 'navbar-link' %> -</li>
+            <% end %>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+  <!-- END NAV -->
+    <div class="container">
 
       <% if flash[:notice] %>
         <div class="alert alert-success">
