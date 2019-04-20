@@ -5,7 +5,7 @@ Blocipedia is a CRUD Rails application that allows users to create private and p
 
 ## Dependencies
 * ruby 2.5.1
-* rails 5.2.1
+* rails 5.2.1 
 * For ActiveModel validations use [thoughtbot / shoulda ](https://github.com/thoughtbot/shoulda)
 * [pundit](https://github.com/varvet/pundit) - simplifies authorization
 * [stripe](https://stripe.com/docs/development) - 3rd party e-commerce vendor
