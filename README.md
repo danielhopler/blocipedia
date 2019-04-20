@@ -1,24 +1,26 @@
-# README
+# Blocipedia
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Blocipedia is a CRUD Rails application that allows users to create private and public Markdown-based wikis.
 
-Things you may want to cover:
 
-* Ruby version
+## Dependencies
+* ruby 2.5.1
+* rails 5.2.1
+* For ActiveModel validations use [thoughtbot / shoulda ](https://github.com/thoughtbot/shoulda)
+* [pundit](https://github.com/varvet/pundit) - simplifies authorization
+* [stripe](https://stripe.com/docs/development) - 3rd party e-commerce vendor
+* [redcarpet](https://github.com/vmg/redcarpet) - Markdown parser
 
-* System dependencies
+## Configuration
+* Devise used for user authentication
+* SENDGRID used for Environment Variables
 
-* Configuration
+## Test-Driven-Development
+* rspec-rails, '~> 3.0'
 
-* Database creation
+## Database
+* Use sqlite for testing and development
+* Use PostgreSQL for production
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Deployment
+* Heroku
