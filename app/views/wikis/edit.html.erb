@@ -4,14 +4,14 @@
 	<div class="col-md-8">
 		<%= render partial: 'form', locals: { wiki: @wiki } %>
 	</div>
+	<% if @wiki.private? %>
+		<div class="col-md-4">
+			 <%= render partial: 'collaborators/form', locals: { wiki: @wiki } %>
+
+			 <% if Collaborator.exists?(wiki_id: @wiki.id) %>
+			 		<%= render partial: 'collaborators/show'%>
+			 <% end %>
+		</div>
+	<% end %>
+
 </div>
-
-<% if @wiki.private? %>
-	<div class="col-md-4">
-		 <%= render partial: 'collaborators/form', locals: { wiki: @wiki } %>
-
-		 <% if Collaborator.exists?(wiki_id: @wiki.id) %>
-		 		<%= render partial: 'collaborators/show'%>
-		 <% end %>
-	</div>
-<% end %>

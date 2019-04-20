@@ -9,7 +9,7 @@ require 'faker'
 
 5.times do
   User.create!(
-    username: Faker::HarryPotter.character,
+    username: Faker::Movies::HarryPotter.character,
     email: Faker::Internet.email,
     password: 'password',
     confirmed_at: Time.now
@@ -21,8 +21,8 @@ users = User.all
 20.times do
   Wiki.create!(
     user: users.sample,
-    title: Faker::HarryPotter.book,
-    body: Faker::HarryPotter.quote
+    title: Faker::Movies::HarryPotter.book,
+    body: Faker::Movies::HarryPotter.quote
   )
 end
 
@@ -46,7 +46,7 @@ premium = User.create!(
 
 standard = User.create!(
   username: 'Standard',
-  email: 'stamdard@example.com',
+  email: 'standard@example.com',
   password: 'password',
   confirmed_at: Time.now,
 )

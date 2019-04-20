@@ -19,8 +19,22 @@ Blocipedia is a CRUD Rails application that allows users to create private and p
 * rspec-rails, '~> 3.0'
 
 ## Database
-* Use sqlite for testing and development 
+* Use sqlite for testing and development
 * Use PostgreSQL for production
 
 ## Deployment
 * Heroku
+
+## Blocipedia Features
+![landing](app/assets/images/landing.png)
+
+* Add new wikis
+![new wikis](app/assets/images/new_wikis.png)
+
+* Upgrade to Premium Membership with Stripe
+![stripe](app/assets/images/stripe.png)
+
+* Now you can make your wikis private and add collaborators
+![premium_member](app/assets/images/premium_member.png)
+
+![collaborators](app/assets/images/collaborators.png)

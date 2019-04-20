@@ -4,7 +4,10 @@ class CollaboratorsController < ApplicationController
     @user = User.find_by_email(params[:email])
     @collaborator = Collaborator.where(wiki: @wiki, user: @user).first_or_initialize
 
-     if @collaborator.persisted?
+     if @user == current_user
+       flash[:alert] = "Oooops! That's your user email! Try again!"
+       redirect_to edit_wiki_path(@wiki)
+     elsif @collaborator.persisted?
       flash[:alert] = "Oooops! This collaborator has already been added to this wiki."
       redirect_to edit_wiki_path(@wiki)
     else
