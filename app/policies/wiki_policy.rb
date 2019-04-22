@@ -2,10 +2,6 @@ class WikiPolicy < ApplicationPolicy
 
 
 
-  def show?
-    (@record.user == @user) || @user.admin? || (@record.private == false )|| @record.users.include?(user)
-  end
-
   def create?
     :user_signed_in?
   end
